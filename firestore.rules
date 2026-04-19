@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+    }
+    match /posts/{postId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+    match /chatRooms/{roomId} {
+      allow read, create: if true;
+      match /messages/{msgId} {
+        allow read, create: if true;
+      }
+    }
+    match /pointTransactions/{txId} {
+      allow read, create: if true;
+    }
+  }
+}
