@@ -6,7 +6,6 @@ import {
   query,
   setDoc,
   where,
-  updateDoc,
 } from "firebase/firestore";
 import bcrypt from "bcryptjs";
 import { db } from "./firebase";
